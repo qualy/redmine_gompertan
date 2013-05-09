@@ -1,7 +1,7 @@
 # Redmine gompertan plugin
 require 'redmine'
 
-RAILS_DEFAULT_LOGGER.info 'Starting Gompertan plugin for RedMine'
+Rails.logger.info 'Starting Gompertan plugin for Redmine'
 
 Redmine::Plugin.register :gompertan_plugin do
   name :'Gompertan plugin'
@@ -14,7 +14,7 @@ Redmine::Plugin.register :gompertan_plugin do
   # It can be enabled/disabled at project level (Project settings -> Modules)
   project_module :gompertan_module do
     # A public action
-    permission :gompertan_view, {:gompertan => [:view]}, :public => true
+    permission :gompertan_show, {:gompertan => [:show]}, :public => true
     permission :gompertan_graph, {:gompertan => [:graph]}, :public => true
     # This permission has to be explicitly given
     # It will be listed on the permissions screen
@@ -22,5 +22,5 @@ Redmine::Plugin.register :gompertan_plugin do
   end
 
   # A new item is added to the project menu
-  menu :project_menu, :gompertan_plugin, { :controller => 'gompertan', :action => 'view' }, :caption => :label_plugin_gompertan
+  menu :project_menu, :gompertan_plugin, { :controller => 'gompertan', :action => 'show' }, :caption => :label_plugin_gompertan
 end

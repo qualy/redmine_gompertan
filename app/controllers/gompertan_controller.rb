@@ -7,7 +7,7 @@ class GompertanController < ApplicationController
   layout 'base'  
   before_filter :find_project, :find_tracker, :authorize
 
-  def view
+  def show
   end
 
   def graph

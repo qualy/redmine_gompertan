@@ -1,10 +1,10 @@
 <h2><%= l(:label_plugin_gompertan) %></h2>
 
-<%= l(:download_svg_viewer) %>
+<%== l(:download_svg_viewer) %>
 <p>
 
 <div>
-  <% form_tag :action => :view do |f| %>
+  <%= form_tag :action => :show do |f| %>
     <label for="tracker_id"><%=h l(:label_tracker) %>:</label>
     <%= select_tag('tracker_id', options_for_select({l(:label_all) => nil}, false) + options_from_collection_for_select(@project.trackers.all, :id, :name, @tracker.try(:id))) %>
     <%= submit_tag "更新" %>
